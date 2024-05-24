@@ -1,10 +1,22 @@
 import React from "react";  
 import ReactDOM from 'react-dom/client';
 
-const Title = ()=><h1>Namaste Reacat 🚀</h1>;
+
+const FuctionalComponent = ()=>(
+    <div>   
+        <h1>Functional component 🚀</h1>
+    </div>
+)
+const Title = ()=>(
+    <div>   
+        <h1>Namaste Reacat 🚀</h1>
+    </div>
+)
+
 
 const HeadingComponent = () => (
-     <div>
+    <div>
+        {FuctionalComponent()}
         <Title/>
         <h1>
             Namaster React from Component
