@@ -24,6 +24,7 @@
 .food-img{
     padding-left: 13px;
     width: 83%;
+    height: 50%;
 }
 
 .search{
@@ -32,14 +33,19 @@
 }
 .res-card{
     background-color: #f0f0f0;
-    border: 1px solid black;
     width: 180px;
     margin-bottom: 20px;
+    margin-right: 5px;
+    margin-left: 20px;
+}
+.res-card:hover{
+    border: 1px solid black;
 }
 .res-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: left;
 }
 .food-info{
     margin: 3%;
