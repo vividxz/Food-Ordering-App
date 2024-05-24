@@ -1,0 +1,46 @@
+.header-container{
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-between;
+    align-items: center;
+}
+.food-logo {
+    width : 100px;
+}
+
+.nav-div > ul > li {
+    list-style-type: none;
+    display: flex;
+}
+.nav-div > ul {
+    
+    display: flex;
+    justify-content: space-around;
+}
+.nav-div{
+    width: 300px;
+}
+
+.food-img{
+    padding-left: 13px;
+    width: 83%;
+}
+
+.search{
+    padding: 0.5%;
+    font-size: 150%;
+}
+.res-card{
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    width: 180px;
+    margin-bottom: 20px;
+}
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.food-info{
+    margin: 3%;
+}
