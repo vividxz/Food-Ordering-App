@@ -32,6 +32,7 @@
     font-size: 150%;
 }
 .res-card{
+    cursor: pointer;
     background-color: #f0f0f0;
     width: 180px;
     margin-bottom: 20px;
@@ -44,7 +45,6 @@
 .res-container{
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     justify-content: left;
 }
 .food-info{
