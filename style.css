@@ -9,17 +9,21 @@
 }
 
 .nav-div > ul > li {
+  
     list-style-type: none;
     display: flex;
 }
 .nav-div > ul {
     
     display: flex;
+    
+    flex-wrap: wrap;
     justify-content: space-around;
 }
-.nav-div{
-    width: 300px;
+.nav-div > ul > li {
+    margin: 0 10px;
 }
+
 
 .food-img{
     padding-left: 13px;
@@ -62,8 +66,23 @@
     cursor: pointer;
     background-color: #f0f0f0;
     width: 180px;
-    height: 500px;
+    height: 200px;
     margin-bottom: 20px;
+    margin-top: 20px;
     margin-right: 5px;
     margin-left: 20px;
+}
+.login-btn{
+    padding: 0 10px;
+    margin: 0 8px;
+}
+
+.input-btn{
+    display: flex;
+}
+.input-btn > input{
+    margin: 5px 10px;
+}
+.input-btn > button{
+    margin: 5px 5px;
 }

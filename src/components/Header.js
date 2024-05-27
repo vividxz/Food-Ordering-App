@@ -1,7 +1,10 @@
+import { useState } from "react";
 import {LOGO_IMG } from "../utils/constants";
 
 
 const HeaderComponent = () => {
+
+    const [loginBtn, setloginBtn] = useState("Login");
     return (
       <div className="header-container">
         <div>
@@ -14,7 +17,6 @@ const HeaderComponent = () => {
         <div className="nav-div">
           <ul className="nav-items">
             <li>
-              {" "}
               <h2>Home</h2>
             </li>
             <li>
@@ -25,6 +27,13 @@ const HeaderComponent = () => {
             </li>
             <li>
               <h2>Cart</h2>
+            </li>
+            <li>
+              <button className="login-btn" onClick={
+                ()=>{
+                  setloginBtn(loginBtn==="Login"?"Logout":"Login")
+                }
+              }>{loginBtn}</button>
             </li>
           </ul>
         </div>
