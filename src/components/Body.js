@@ -14,7 +14,7 @@ const Body = () => {
 
   
   const fetchData = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     const dataVal = await data.json();
 
     const resLiveData = dataVal?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
@@ -44,7 +44,7 @@ const Body = () => {
             className="filter-btn" 
             onClick={()=>{
               
-              setlistCard(listCard.filter((res)=>res.info.avgRating>4));
+              setfilterRestaurant(listCard.filter((res)=>res.info.avgRating>4));
             }}>Filter</button>
         </div>
         <div className="res-container">
