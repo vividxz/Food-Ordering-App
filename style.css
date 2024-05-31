@@ -86,3 +86,7 @@
 .input-btn > button{
     margin: 5px 5px;
 }
+.nav-items > Link:visited {
+    color: red;
+}
+
