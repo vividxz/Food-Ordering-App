@@ -9,15 +9,15 @@ class UserInfoClass extends React.Component{
             count : 0,
             count2 : 2
         }
-        console.log("Child Constructor");
+        console.log(this.props.name + " - Child Constructor");
     }
 
     componentDidMount(){
-        console.log("Child Mounted");
+        console.log(this.props.name+ " - Child Mounted");
     }
 
     render(){
-        console.log("Child Render");
+        console.log(this.props.name+ " - Child Render");
         const {name, email, location} = this.props;
         const {count} = this.state;
         return(
