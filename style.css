@@ -90,3 +90,8 @@
     color: red;
 }
 
+.user-info{
+    margin-bottom: 3px;
+    padding-left: 5px;
+    border: 2px solid #f0f0f0;
+}
