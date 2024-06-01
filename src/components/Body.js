@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 
@@ -12,26 +13,27 @@ const Body = () => {
   let [listCard, setlistCard] = useState([]);
   let [inputText, setinputText] = useState("");
   let [filterRestaurant, setfilterRestaurant] = useState([]);
-  useEffect(() => {fetchData()}, []);
+  useEffect(() => {fetchData()}, );
+
 
   
   const fetchData = async () => {
     const data = await fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     const dataVal = await data.json();
-
-    const resLiveData = dataVal?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     
+    const resLiveData = dataVal?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     setlistCard(resLiveData);
     setfilterRestaurant(resLiveData);
   }
-
-  if(listCard.length === 0){
-    return <Shimmer/>
-  }
+  
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus === false)
+    return <h1>Seems like you're offline, please check your connection</h1>
   return listCard.lenght===0
-    ?<Shimmer/>
-    :(
-      <div className="body">
+  ?<Shimmer/>
+  :(
+    
+    <div className="body">
         <div className="input-btn">
           <input type="text" value={inputText} onChange={
             (e)=>{
