@@ -6,32 +6,32 @@ class UserInfoClass extends React.Component{
         super(props);
 
         this.state = {
-            count : 0,
-            count2 : 2
+            info:{
+                name : "Default Name",
+                location : "Default Location",
+                email : "Default Email"
+            }
         }
-        console.log(this.props.name + " - Child Constructor");
     }
 
-    componentDidMount(){
-        console.log(this.props.name+ " - Child Mounted");
+    async componentDidMount(){
+        const data = await fetch("https://api.github.com/users/vividxz");
+        const json = await data.json();
+        this.setState({info:json})
     }
 
     render(){
-        console.log(this.props.name+ " - Child Render");
-        const {name, email, location} = this.props;
-        const {count} = this.state;
+        const {name, location, company, avatar_url}= this.state.info;
         return(
-            <div className="user-info">
-                <h2>Count - {count}</h2>
-                <button onClick={()=>{
-                    this.setState({
-                        count : this.state.count + 1
-                    })
-                }}>Increase Count</button>
-                {/* <h2>Count2 - {count2}</h2> */}
-                <h2>Name - {name}</h2>
-                <h3>Location - {location}</h3>
-                <h3>Email - {email}</h3>
+            <div className="git-user-info">
+                <div className="text-container">
+                    <h2>Name - {name}</h2>
+                    <h3>Location - {location}</h3>
+                    <h3>College - {company}</h3>
+                </div>
+                <div>
+                    <img className="git-avatar" src={avatar_url}></img>
+                </div>
             </div>
         )
     }
