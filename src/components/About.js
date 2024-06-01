@@ -17,8 +17,9 @@ class About extends React.Component{
         
         return (
             <div>
-                <h1>About</h1>
-                <UserInfoClass/>
+                <h1 className=" font-bold mx-7 my-8 text-4xl">About</h1>
+                <UserInfoClass url={"https://api.github.com/users/vividxz"}/>
+                <UserInfoClass url={"https://api.github.com/users/skjha1"}/>
             </div>
         )
     }

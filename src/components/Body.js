@@ -10,7 +10,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   
-  let [listCard, setlistCard] = useState([]);
+  let [listCard, setlistCard] = useState(null);
   let [inputText, setinputText] = useState("");
   let [filterRestaurant, setfilterRestaurant] = useState([]);
   useEffect(() => {fetchData()}, );
@@ -29,32 +29,42 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if(onlineStatus === false)
     return <h1>Seems like you're offline, please check your connection</h1>
-  return listCard.lenght===0
+  return listCard === null
   ?<Shimmer/>
   :(
     
     <div className="body">
-        <div className="input-btn">
-          <input type="text" value={inputText} onChange={
-            (e)=>{
-              setinputText(e.target.value)
-            }
-          }></input>
-          <button onClick={
-            ()=>{
-                  
-            setfilterRestaurant(listCard.filter((data)=>data.info.name.toLowerCase().includes(inputText.toLocaleLowerCase())))}}>Search</button>
+        <div className=" flex items-center mt-10 ">
+          <div>
+            <input  
+            type="text" 
+            className=" m-5 ml-9 px-3 border border-solid border-green-400 rounded-md shadow-md shadow-gray-400" 
+            value={inputText} onChange={
+              (e)=>{
+                setinputText(e.target.value)
+              }
+            }></input>
+          </div>
+          <div className=" m-2 p-3">
+            <button 
+            className=" p-1 bg-green-100 w-28 h-10 rounded-lg shadow-md  shadow-gray-400"
+            onClick={
+              ()=>{
+                    
+              setfilterRestaurant(listCard.filter((data)=>data.info.name.toLowerCase().includes(inputText.toLocaleLowerCase())))}}>Search</button>
+          </div>
+          <div className=" ml-3">
           <button 
-            className="filter-btn" 
-            onClick={()=>{
-              
-              // setfilterRestaurant=listCard.filter((res)=>res.info.avgRating>4);
+              className=" p-1 bg-green-100 w-56 h-10 rounded-lg shadow-md shadow-gray-400" 
+              onClick={()=>{
+                
+                // setfilterRestaurant=listCard.filter((res)=>res.info.avgRating>4);
 
-              setfilterRestaurant(listCard.filter((res)=>res.info.avgRating>4));
-            }}>Filter</button>
+                setfilterRestaurant(listCard.filter((res)=>res.info.avgRating>4));
+              }}>Top Rated restaurant</button>
+          </div>
         </div>
-        <div className="res-container">
-        
+        <div className="flex flex-wrap justify-evenly mt-8">
           {filterRestaurant.map((restaurant) => (
             <Link key={restaurant.info.id}  to={"/restaurant/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
           ))}

@@ -15,7 +15,8 @@ class UserInfoClass extends React.Component{
     }
 
     async componentDidMount(){
-        const data = await fetch("https://api.github.com/users/vividxz");
+        const userUrl = this.props.url;
+        const data = await fetch(userUrl);
         const json = await data.json();
         this.setState({info:json})
     }
@@ -23,14 +24,14 @@ class UserInfoClass extends React.Component{
     render(){
         const {name, location, company, avatar_url}= this.state.info;
         return(
-            <div className="git-user-info">
-                <div className="text-container">
-                    <h2>Name - {name}</h2>
-                    <h3>Location - {location}</h3>
-                    <h3>College - {company}</h3>
+            <div className="flex m-4 mx-6 p-4 mb-8 justify-between bg-pink-50 rounded-xl shadow-lg shadow-pink-200">
+                <div className=" pt-9">
+                    <h2 className=" text-2xl">Name - {name}</h2>
+                    <h3 className=" text-2xl">Location - {location}</h3>
+                    <h3 className=" text-2xl">College - {company}</h3>
                 </div>
                 <div>
-                    <img className="git-avatar" src={avatar_url}></img>
+                    <img className=" w-40 rounded-full" src={avatar_url}></img>
                 </div>
             </div>
         )
