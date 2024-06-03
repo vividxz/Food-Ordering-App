@@ -26,4 +26,20 @@ const RestaurantCard = (props) => {
     );
   };
 
+
+
+export const withdistanceRestaurant = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className=" m-2 p-2 absolute bg-black text-white rounded-lg">
+          {props.resData.info.sla.lastMileTravelString}
+        </label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+}
+
+
   export default RestaurantCard;
