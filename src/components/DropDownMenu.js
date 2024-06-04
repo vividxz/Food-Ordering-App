@@ -1,11 +1,19 @@
+import { useDispatch } from "react-redux";
 import { CDN_IMG } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 
 const DropDownMenu = ({food}) => {
-    const foodList = food.card.card.itemCards;
-    return(
-        <div>
+  {console.log(food)}
+  const foodList = food;
+  const dispatch = useDispatch()
+  function handleDispatch(food){
+    dispatch(addItem(food));
+  }
+  return(
+    <div>
             {foodList.map((food) => (
+    
           <div className=" bg-gray-100 rounded-xl w-6/12 my-5 pl-5 mx-auto flex justify-between">
             {/* {console.log(food.card.info)} */}
             <div>
@@ -15,12 +23,22 @@ const DropDownMenu = ({food}) => {
                   ? food.card.info.price / 100
                   : food.card.info.defaultPrice / 100}
               </h1>
-              <h1>{food.card.info.description}</h1>
+              <h1 className="text-sm w-9/12">{food.card.info.description}</h1>
             </div>
+            <div className="flex flex-wrap justify-center">
+
+            <button 
+            className="absolute mt-3 ml-2 p-1 rounded-lg bg-black text-white"
+            onClick={()=>{handleDispatch(food)}}
+            > Add + </button>
+            <div className="w-36 h-36 justify-center items-center flex flex-wrap">
+
             <img
-              className="w-24 h-28 mr-6 p-2 rounded-lg"
+              className=" w-full h-full my-auto p-4 pt-6 rounded-lg"
               src={CDN_IMG + food.card.info.imageId}
             ></img>
+            </div>
+            </div>
           </div>
         ))}
         </div>

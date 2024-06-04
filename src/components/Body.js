@@ -29,7 +29,7 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if(onlineStatus === false)
     return <h1>Seems like you're offline, please check your connection</h1>
-  return listCard === null
+  return (listCard === null)
   ?<Shimmer/>
   :(
     

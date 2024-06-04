@@ -29,7 +29,7 @@ const RestaurantMenuArcodian = ({ data, index,  viewList, setViewList}) => {
         </button>
       </div>
       <div className="">
-      { viewList  &&<DropDownMenu food={data} />}</div>
+      { viewList  &&<DropDownMenu food={data.card.card.itemCards} />}</div>
     </div>
   );
 };
